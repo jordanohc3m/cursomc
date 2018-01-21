@@ -1,5 +1,7 @@
 package br.com.jordano.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,13 +11,14 @@ import java.util.List;
  * Created by jordano on 20/01/2018.
  */
 @Entity
-public class Estado implements Serializable{
+public class Estado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
 
