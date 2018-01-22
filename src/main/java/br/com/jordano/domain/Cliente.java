@@ -32,6 +32,8 @@ public class Cliente implements Serializable {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    private List<Pedido> pedidos = new ArrayList<>();
+
     public Cliente() {
     }
 
@@ -96,5 +98,32 @@ public class Cliente implements Serializable {
 
     public void setTelefones(Set<String> telefones) {
         this.telefones = telefones;
+    }
+
+    public void setTipoCliente(Integer tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente)) return false;
+
+        Cliente cliente = (Cliente) o;
+
+        return getId() != null ? getId().equals(cliente.getId()) : cliente.getId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getId() != null ? getId().hashCode() : 0;
     }
 }

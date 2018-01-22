@@ -1,6 +1,5 @@
 package br.com.jordano.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -24,7 +23,7 @@ public class Categoria implements Serializable {
     private List<Produto> produtos = new ArrayList<>();
 
 
-    public Categoria(){
+    public Categoria() {
 
     }
 
@@ -72,4 +71,5 @@ public class Categoria implements Serializable {
     public int hashCode() {
         return getId() != null ? getId().hashCode() : 0;
     }
+    
 }
